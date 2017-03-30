@@ -9,7 +9,10 @@ from requests_oauthlib import OAuth1Session
 
 
 if __name__ == '__main__':
-    emojis = UNICODE_EMOJI.keys()
+    emojis = filter(
+        lambda e: ' ' not in e,
+        UNICODE_EMOJI.keys(),
+    )
     status = 'fav for {}, rt for {}'.format(
         random.choice(emojis),
         random.choice(emojis),
